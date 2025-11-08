@@ -366,3 +366,38 @@ function updateYearsOfExperience() {
 
 // Update years when page loads
 document.addEventListener('DOMContentLoaded', updateYearsOfExperience);
+
+// Calculate current job duration dynamically
+function updateCurrentJobDuration() {
+    const startDate = new Date(2024, 8, 1); // Sep 2024 (month is 0-indexed, so 8 = September)
+    const currentDate = new Date();
+    
+    // Calculate difference in months
+    const yearsDiff = currentDate.getFullYear() - startDate.getFullYear();
+    const monthsDiff = currentDate.getMonth() - startDate.getMonth();
+    const totalMonths = yearsDiff * 12 + monthsDiff;
+    
+    // Format the duration text
+    let durationText = 'Duration: ';
+    if (totalMonths < 12) {
+        durationText += totalMonths + (totalMonths === 1 ? ' month' : ' months');
+    } else {
+        const years = Math.floor(totalMonths / 12);
+        const months = totalMonths % 12;
+        if (months === 0) {
+            durationText += years + (years === 1 ? ' year' : ' years');
+        } else {
+            durationText += years + (years === 1 ? ' year ' : ' years ') + months + (months === 1 ? ' month' : ' months');
+        }
+    }
+    
+    // Update the element
+    const durationElement = document.getElementById('current-job-duration');
+    if (durationElement) {
+        durationElement.textContent = durationText;
+    }
+}
+
+// Update current job duration when page loads
+document.addEventListener('DOMContentLoaded', updateCurrentJobDuration);
+
