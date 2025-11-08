@@ -971,6 +971,36 @@ section {
 .cert-card p {
     color: var(--text-gray);
     font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+}
+
+.view-certificate {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+.view-certificate:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.view-certificate i {
+    font-size: 0.9rem;
+}
+
+.cert-card:not([data-certificate]) {
+    opacity: 0.9;
 }
 
 /* Skills Section */
