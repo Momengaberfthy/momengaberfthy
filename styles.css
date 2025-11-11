@@ -525,6 +525,71 @@ section {
     margin-bottom: 0.5rem;
 }
 
+.company-name {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.company-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 10px;
+    background: white;
+    padding: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.company-logo:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.35);
+}
+
+.company-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 0.3rem;
+    margin: -0.3rem;
+}
+
+.company-text {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.company-text::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    transition: width 0.3s ease;
+}
+
+.company-link:hover .company-text::after {
+    width: 100%;
+}
+
+.company-link:hover .company-text {
+    color: var(--secondary-color);
+}
+
+.company-link:hover .company-logo {
+    transform: scale(1.08) rotate(2deg);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+}
+
 .location {
     color: var(--text-gray);
     margin-bottom: 1rem;
